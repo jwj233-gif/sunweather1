@@ -22,7 +22,13 @@ android {
         }
     }
 }
+compileOptions {
 
+    sourceCompatibility JavaVersion.VERSION_1_8
+
+    targetCompatibility JavaVersion.VERSION_1_8
+
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -32,4 +38,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+lintOptions {
+    // true  所有正式版构建执行规则生成崩溃的lint检查，如果有崩溃问题将停止构建
+    checkReleaseBuilds false
+    //true 错误发生后停止构建
+    abortOnError false
 }
